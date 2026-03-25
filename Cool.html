@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaires</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            color: #475569;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-0.5rem);
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .arrow-icon {
+            width: 24px;
+            height: 24px;
+            color: #2563eb;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .arrow-icon {
+            transform: translateX(0.5rem);
+        }
+
+        .card-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-footer {
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn:active {
+            background-color: #1e40af;
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-box h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .info-box ol {
+            list-style-position: inside;
+            space-y: 0.75rem;
+        }
+
+        .info-box li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+       
+        .info-box li span:first-child {
+            font-weight: 700;
+            color: #2563eb;
+            margin-right: 1rem;
+            min-width: 2rem;
+        }
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Formulaires</h1>
+            <p>Sélectionnez une section pour remplir le formulaire correspondant</p>
+        </div>
+        <div style="background: linear-gradient(135deg,#667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 40px 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin: 30px 0;">
+        <h2 style="font-size: 2rem; margin-bottom: 15px;">Bonjour chers Etudiants Nous construisons votre Assistant de carrière en ligne , une première au Cameroun!</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 20px;">Et on a besoin de toi pour le construire</p>
+        <p style="font-size: 1rem; margin-bottom: 25px;">Choisis le parcours que tu aimerais emprunter dans ta vie <br> et clique sur la section correspondante a ton parcours,<br>l'objectif etant de découvrir ce que tu veux réelement <br> pour pouvoir concevoir le meilleur assisatant possible.</p>
+        <a href="#formgrid" style="background: #ff6b6b; color: white; padding: 12px 30px;text-decoration: none;border-radius: 30px;font-weight: bold;display: inline-block; ">Je participe a la construction!</a>
+
+        </div>
+        <div class="grid" id="formGrid"></div>
+
+        <div class="info-box">
+            <h3>Comment ça marche ?</h3>
+            <ol>
+                <li>
+                    <span>1.</span>
+                    <span>Choisissez la section qui vous intéresse</span>
+                </li>
+                <li>
+                    <span>2.</span>
+                    <span>Remplissez le formulaire Google avec vos informations</span>
+                </li>
+                <li>
+                    <span>3.</span>
+                    <span>Soumettez et vous recevrez une confirmation</span>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="footer">
+            <p>UNIVERSAL Tech</p>
+            <p>Une equipe dynamique au service de l'essor Professionnel des jeunes Etudiants</p>
+            <p>&copy; 2026 Universal Tech - PorfolioHub by Universal Tech</p>
+        </div>
+    <script>
+        const sections = [
+            {
+                id: 1,
+                title: 'Section 1',
+                description: 'Formulaire destiné au parcours Stage/Emploi',
+                link: 'https://forms.gle/8vPt1BVu9QudVD9M8'
+            },
+            {
+                id: 2,
+                title: 'Section 2',
+                description: 'Formulaire destiné au parcours Stage/Entrepreneur',
+                link: 'https://forms.gle/J7pwVuhD7ycfuMFk9'
+            },
+            {
+                id: 3,
+                title: 'Section 3',
+                description: 'Formulaire destiné au Etudiants Indecis',
+                link: 'https://forms.gle/ujCqrQ6jNxR9iUR16'
+            }
+        ];
+
+        const formGrid = document.getElementById('formGrid');
+
+        sections.forEach(section => {
+            const card = document.createElement('a');
+            card.href = section.link;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+            card.className = 'card';
+
+            card.innerHTML = `
+                <div class="card-content">
+                    <div class="card-header">
+                        <h2 class="card-title">${section.title}</h2>
+                        <svg class="arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </div>
+                    <p class="card-description">${section.description}</p>
+                    <div class="card-footer">
+                        <button class="btn">Accéder au formulaire</button>
+                    </div>
+                </div>
+            `;
+
+            formGrid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
+
